@@ -1,35 +1,41 @@
 # Probability Calculator
 
-This project implements a probability calculator that simulates drawing balls from a hat to calculate probabilistic outcomes.
+A Python project that calculates probability by simulating ball drawings from a hat. It uses a Hat class to manage balls of different colors and provides an experiment function to determine the likelihood of drawing specific combinations. Ideal for understanding probability concepts through practical simulation.
 
-## Description
+## Classes
 
-The program contains two main classes/functions:
+### Hat
 
-### `Hat` Class
-A class that represents a hat containing colored balls:
-- Initialize with a variable number of balls of different colors
-- Supports drawing a random selection of balls
-- Automatically refills drawn balls after experiments
+Represents a hat containing balls of different colors.
 
-### `experiment` Function
-Calculates probability by running multiple experiments:
-- Takes parameters for expected ball counts and experiment configuration
-- Returns probability of drawing the expected combination of balls
-- Runs specified number of experiments to calculate probability
+#### Methods
+
+- `draw(self, number_of_balls=0)`: Draws a specified number of balls from the hat randomly.
+
+## Functions
+
+### experiment(hat, expected_balls, num_balls_drawn, num_experiments)
+
+Conducts a probability experiment to determine the likelihood of drawing a specific combination of balls from the hat.
+
+#### Parameters
+
+- `hat (Hat)`: The hat object containing the balls.
+- `expected_balls (dict)`: A dictionary representing the expected number of each color of balls to be drawn.
+- `num_balls_drawn (int)`: The number of balls to draw in each experiment.
+- `num_experiments (int)`: The number of experiments to conduct.
+
+#### Returns
+
+- `float`: The probability of drawing the expected combination of balls.
 
 ## Usage Example
 
 ```python
-# Create a hat with colored balls
 hat = Hat(blue=3, red=2, green=6)
-
-# Define expected outcome
 expected_balls = {'blue': 2, 'green': 1}
-
-# Configure experiment
 num_balls_drawn = 4
 num_experiments = 1000
-
-# Run the experiment
 probability = experiment(hat, expected_balls, num_balls_drawn, num_experiments)
+print(probability)
+```
